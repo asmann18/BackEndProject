@@ -1,0 +1,64 @@
+﻿@using Back_End_Project.Models
+
+@model List<Course>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Course course in Model)
+                {
+
+                    <tr>
+                        <td>@course.Id</td>
+                        <td>
+                            <img src="~/assets/images/website-images//@course.Image"
+                             alt="Inner Image" />
+                        </td>
+                        <td>@course.Name</td>
+                        <td>@course.Desc.Substring(0,60)</td>
+               
+                        <td>
+                            <a class="btn btn-success" asp-route-id="@course.Id" asp-action="Detail">Detail</a>
+                            <a class="btn btn-warning" asp-route-id="@course.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@course.Id" asp-action="Delete">Delete</a>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a class="create_button btn btn-success" asp-action="create">  Create </a>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+
+

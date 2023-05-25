@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 
+
 namespace Back_End_Project.Contexts
 {
     public class AppDbContext : DbContext
@@ -10,6 +11,7 @@ namespace Back_End_Project.Contexts
         {
 
         }
-        public List<Course> Courses { get; set; }
+        public DbSet<Course> Courses { get; set; }
+
     }
 }

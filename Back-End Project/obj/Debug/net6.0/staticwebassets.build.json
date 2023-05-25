@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D7MYWwQtsHODcgnIR5b33KRnwa/fSBhRVpyTTZKaGbA=",
+  "Hash": "IiILCG1IOEWK9558jATA1LNasggg0cSdnlsRnwGyr3o=",
   "Source": "Back-End Project",
   "BasePath": "_content/Back-End Project",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Back-End Project.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\css\\adminpanel.css",
+      "SourceId": "Back-End Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
+      "BasePath": "_content/Back-End Project",
+      "RelativePath": "css/adminpanel.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\adminpanel.css"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\css\\animate.css",
