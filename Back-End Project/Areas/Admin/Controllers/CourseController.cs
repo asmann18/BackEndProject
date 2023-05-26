@@ -9,7 +9,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
     public class CourseController : Controller
     {
         private readonly AppDbContext _context;
-
+        //ehehe
         public CourseController(AppDbContext context)
         {
             _context = context;
