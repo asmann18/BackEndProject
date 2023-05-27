@@ -2,6 +2,7 @@
 using Back_End_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Back_End_Project.Areas.Admin.ViewModels;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
@@ -9,7 +10,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
     public class CourseController : Controller
     {
         private readonly AppDbContext _context;
-        //ehehe
+        
         public CourseController(AppDbContext context)
         {
             _context = context;
@@ -20,6 +21,18 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             List<Course> courses = _context.Courses.ToList();
             return View(courses);
+        }
+        public IActionResult Create()
+        {
+          
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(CourseViewModel courseViewModel)
+        {
+            return RedirectToAction(nameof(Index));
         }
     }
 }

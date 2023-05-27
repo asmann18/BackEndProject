@@ -1,0 +1,87 @@
+﻿@using Back_End_Project.Areas.Admin.ViewModels
+@using Back_End_Project.Models
+@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Default form</h4>
+                    <p class="card-description">
+                        Basic form layout
+                    </p>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Image</label>
+                            <input class="form-control" asp-for="Image" placeholder="Image" accept="image/*">
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input class="form-control"  asp-for="Name" placeholder="Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Price</label>
+                            <input class="form-control" asp-for="Price" placeholder="Price">
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Description</label>
+                            <input class="form-control" asp-for="Desc" placeholder="Description">
+                            <span asp-validation-for="Desc" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">StartTime</label>
+                            <input class="form-control" asp-for="StartTime" placeholder="Start Time">
+                            <span asp-validation-for="Desc" class="text-danger"></span>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Duration</label>
+                            <input class="form-control" asp-for="Duration" placeholder="Duration">
+                            <span asp-validation-for="Desc" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">ClassDuration</label>
+                            <input class="form-control" asp-for="ClassDuration" placeholder="ClassDuration">
+                            <span asp-validation-for="Desc" class="text-danger"></span>
+                        </div>
+                       
+                       
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">SkillLevel</label>
+                            <input class="form-control" asp-for="SkillLevel" placeholder="SkillLevel">
+                            <span asp-validation-for="Desc" class="text-danger"></span>
+                        </div>
+                                  
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">StudentCount</label>
+                            <input class="form-control" asp-for="StudentCount" placeholder="StudentCount">
+                            <span asp-validation-for="Desc" class="text-danger"></span>
+                        </div>
+                                          
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Assesments</label>
+                            <input class="form-control" asp-for="Assesments" placeholder="Assesments">
+                            <span asp-validation-for="Desc" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mr-2">Create</button>
+                        <a class="btn btn-light" asp-action="Index">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
