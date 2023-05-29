@@ -1,12 +1,12 @@
 ﻿@using Back_End_Project.Areas.Admin.ViewModels
-@using Back_End_Project.Models
 @model CourseViewModel
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@addTagHelper *, AuthoringTagHelpers
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
     Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
 }
+
+
+
 
 
 
@@ -22,12 +22,12 @@
                     <form class="forms-sample" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputUsername1">Image</label>
-                            <input class="form-control" asp-for="Image"  placeholder="Image" accept="image/*">
+                            <input class="form-control" asp-for="Image" placeholder="Image" accept="image/*">
                             <span asp-validation-for="Image" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
-                            <input class="form-control"  asp-for="Name" placeholder="Name">
+                            <input class="form-control" asp-for="Name" placeholder="Name">
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
@@ -45,32 +45,32 @@
                             <input class="form-control" asp-for="StartTime" placeholder="Start Time">
                             <span asp-validation-for="Desc" class="text-danger"></span>
                         </div>
-                       
+
                         <div class="form-group">
                             <label for="exampleInputConfirmPassword1">Duration</label>
                             <input class="form-control" asp-for="Duration" placeholder="Duration">
                             <span asp-validation-for="Desc" class="text-danger"></span>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="exampleInputConfirmPassword1">ClassDuration</label>
                             <input class="form-control" asp-for="ClassDuration" placeholder="ClassDuration">
                             <span asp-validation-for="Desc" class="text-danger"></span>
                         </div>
-                       
-                       
+
+
                         <div class="form-group">
                             <label for="exampleInputConfirmPassword1">SkillLevel</label>
                             <input class="form-control" asp-for="SkillLevel" placeholder="SkillLevel">
                             <span asp-validation-for="Desc" class="text-danger"></span>
                         </div>
-                                  
+
                         <div class="form-group">
                             <label for="exampleInputConfirmPassword1">StudentCount</label>
                             <input class="form-control" asp-for="StudentCount" placeholder="StudentCount">
                             <span asp-validation-for="Desc" class="text-danger"></span>
                         </div>
-                                          
+
                         <div class="form-group">
                             <label for="exampleInputConfirmPassword1">Assesments</label>
                             <input class="form-control" asp-for="Assesments" placeholder="Assesments">
@@ -85,4 +85,3 @@
         </div>
     </div>
 </div>
-

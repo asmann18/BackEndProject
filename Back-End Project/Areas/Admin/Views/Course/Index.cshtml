@@ -12,13 +12,14 @@
 
 
     <div class="table-responsive">
+        ">
         <table class="table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Image</th>
                     <th>Name</th>
-                    <th>Description</th>
+
                     <th>Actions</th>
 
                 </tr>
@@ -30,12 +31,12 @@
                     <tr>
                         <td>@course.Id</td>
                         <td>
-                            <img src="~/assets/images/website-images//@course.Image"
+                            <img src="~/img/course/@course.Image"
                              alt="Inner Image" />
                         </td>
                         <td>@course.Name</td>
-                        <td>@course.Desc.Substring(0,60)</td>
-               
+
+
                         <td>
                             <a class="btn btn-success" asp-route-id="@course.Id" asp-action="Detail">Detail</a>
                             <a class="btn btn-warning" asp-route-id="@course.Id" asp-action="Update">Update</a>
@@ -49,7 +50,7 @@
 
             </tbody>
         </table>
-        <a class="create_button btn btn-success" asp-action="create">  Create </a>
+        <a class="create_button btn btn-success" asp-action="Create">  Create </a>
 
     </div>
 
