@@ -1,10 +1,10 @@
 ﻿@using Back_End_Project.Models
-
-@model List<Course>
+@model List<Category>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
 }
+
 
 
 <div class="card-body">
@@ -17,7 +17,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Image</th>
+               
                     <th>Name</th>
 
                     <th>Actions</th>
@@ -25,22 +25,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (Course course in Model)
+                @foreach (Category category in Model)
                 {
 
                     <tr>
-                        <td>@course.Id</td>
-                        <td>
-                            <img src="~/img/course/@course.Image"
-                             alt="Inner Image" />
-                        </td>
-                        <td>@course.Name</td>
+                        <td>@category.Id</td>
+                 
+                        <td>@category.Name</td>
 
 
                         <td>
-                            <a class="btn btn-success" asp-route-id="@course.Id" asp-action="Detail">Detail</a>
-                            <a class="btn btn-warning" asp-route-id="@course.Id" asp-action="Update">Update</a>
-                            <a class="btn btn-danger" asp-route-id="@course.Id" asp-action="Delete">Delete</a>
+                            <a class="btn btn-warning" asp-route-id="@category.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@category.Id" asp-action="Delete">Delete</a>
 
                         </td>
 
@@ -60,6 +56,7 @@
 </div>
     </div>
     </div>
+
 
 
 

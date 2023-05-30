@@ -150,8 +150,8 @@ namespace Back_End_Project.Areas.Admin.Controllers
             {
                 if(System.IO.File.Exists(path+course.Image))
                     System.IO.File.Delete(path+course.Image);
-
                 course.Image = "eheehe-" + amount+courseViewModel.Image.FileName;
+
                 using(FileStream stream = new(path2+ courseViewModel.Image.FileName, FileMode.Create))
                 {
                     await courseViewModel.Image.CopyToAsync(stream);

@@ -1,4 +1,6 @@
-﻿namespace Back_End_Project.Models
+﻿using Back_End_Project.Models.ManyToMany;
+
+namespace Back_End_Project.Models
 {
     public class Course
     {
@@ -13,5 +15,7 @@
         public string SkillLevel { get; set; }
         public byte StudentCount { get; set; }
         public string Assesments { get; set; }
+
+        public ICollection<CategoryCourse> categoryCourses { get; set; }
     }
 }
