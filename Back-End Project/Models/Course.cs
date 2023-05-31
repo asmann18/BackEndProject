@@ -16,6 +16,6 @@ namespace Back_End_Project.Models
         public byte StudentCount { get; set; }
         public string Assesments { get; set; }
 
-        public ICollection<CategoryCourse> categoryCourses { get; set; }
+        public ICollection<CategoryCourse> CategoryCourses { get; set; }
     }
 }

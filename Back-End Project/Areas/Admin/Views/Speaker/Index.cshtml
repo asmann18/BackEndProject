@@ -1,0 +1,68 @@
+﻿@using Back_End_Project.Models
+@model List<Speaker>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+
+                    <th>Name</th>
+
+                    <th>Profession</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Speaker speaker in Model)
+                {
+
+                    <tr>
+                        <td>@speaker.Id</td>
+                        <td>
+                            <img src="~/img/speaker/@speaker.Image"
+                             alt="Inner Image" />
+                        </td>
+
+                        <td>@speaker.Name</td>
+                        <td>@speaker.Profession</td>
+
+
+                        <td>
+                            <a class="btn btn-warning" asp-route-id="@speaker.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@speaker.Id" asp-action="Delete">Delete</a>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a class="create_button btn btn-success" asp-action="Create">  Create </a>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+

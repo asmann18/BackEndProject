@@ -17,5 +17,16 @@ namespace Back_End_Project.Contexts
 
         public DbSet<CategoryCourse> CategoryCourses { get; set; } = null!;
 
+        public DbSet<Event> Events { get; set; } = null!;
+        public DbSet<Speaker> Speakers { get; set; } = null!;
+        public DbSet<EventSpeaker> EventSpeakers { get; set; } = null!;
+
+
+        //Key olaraq bunlarida yazmalisan migration edende - @Huseyn
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<EventSpeaker>()
+        //        .HasKey(e => new { e.EventId, e.SpeakerId});
+        //}
     }
 }

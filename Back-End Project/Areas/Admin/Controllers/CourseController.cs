@@ -1,6 +1,7 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Back_End_Project.Models.ManyToMany;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +12,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
     [Area("Admin")]
     public class CourseController : Controller
     {
-        static double amount = 0;
+        private static double amount = 0;
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
@@ -31,6 +32,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
+            ViewBag.Categories = _context.Categories.ToList();
 
             return View();
         }
@@ -42,6 +44,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             string path = _webHostEnvironment.ContentRootPath + "\\wwwroot\\img\\course\\" + "eheehe-" + amount + courseViewModel.Image.FileName;
 
+            ViewBag.Categories = _context.Categories.ToList();
 
             Course course = new()
             {
@@ -55,20 +58,35 @@ namespace Back_End_Project.Areas.Admin.Controllers
                 StudentCount = courseViewModel.StudentCount,
                 ClassDuration = courseViewModel.ClassDuration,
                 Duration = courseViewModel.Duration,
-                Id = courseViewModel.Id,
+            
 
 
             }
             ;
+            
 
+            List<CategoryCourse> categoryCourses = new List<CategoryCourse>();
+
+            foreach (int id in courseViewModel.CategoryIds)
+            {
+                CategoryCourse categoryCourse = new()
+                {
+                    CourseId = courseViewModel.Id,
+                    CategoryId = id
+
+                };
+               categoryCourses.Add(categoryCourse);
+                
+            }
+            course.CategoryCourses = categoryCourses;
             amount += 123;
-            _context.Courses.Add(course);
-            _context.SaveChanges();
+            await _context.Courses.AddAsync(course);
 
             using (FileStream stream = new(path, FileMode.Create))
             {
                 await courseViewModel.Image.CopyToAsync(stream);
             };
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
 

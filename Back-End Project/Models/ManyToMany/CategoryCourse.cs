@@ -7,5 +7,7 @@
         public Category category { get; set; }
         public int CourseId { get; set; }
         public Course course { get; set; }
+
+    
     }
 }

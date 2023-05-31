@@ -1,0 +1,67 @@
+﻿@using Back_End_Project.Models
+@model List<Event>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+
+                    <th>Image</th>
+                    <th>Name</th>
+
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Event eventt in Model)
+                {
+
+                    <tr>
+                        <td>@eventt.Id</td>
+                        
+                        <td>
+                            <img src="~/img/speaker/@eventt.Image"
+                             alt="Inner Image" />
+                        </td>
+
+                        <td>@eventt.Name</td>
+
+
+                        <td>
+                            <a class="btn btn-success" asp-route-id="@eventt.Id" asp-action="Detail">Detail</a>
+                            <a class="btn btn-warning" asp-route-id="@eventt.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@eventt.Id" asp-action="Delete">Delete</a>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a class="create_button btn btn-success" asp-action="Create">  Create </a>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+
