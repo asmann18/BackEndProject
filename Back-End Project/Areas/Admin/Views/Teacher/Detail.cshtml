@@ -1,0 +1,17 @@
+﻿@using Back_End_Project.Models
+@model Teacher
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+<div style="display:flex;flex-direction:column;
+gap:10px">
+
+ <img style="width:300px;height:300px" src="~/img/teacher/@Model.Image" alt="EventImage" />
+<h4>Name:@Model.Name</h4>
+<h4>Profession:@Model.Profession</h4>
+<h4>About :@Model.About</h4>
+<h4>phone:@Model.Phone  Email:@Model.Mail</h4>
+<a asp-action="Index" class="btn btn-success">Cancel</a>
+</div>

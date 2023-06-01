@@ -1,0 +1,18 @@
+﻿@using Back_End_Project.Models
+@model Teacher
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+<div style="display:flex;flex-direction:column;gap:10px">
+
+<img style="width:250px;height:250px" src="~/img/teacher/@Model.Image" alt="inner image" />
+<h4>Name:@Model.Name</h4>
+<h4>Profession:@Model.Profession</h4>
+<h4>About: @Model.About</h4>
+<form method="post">
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-light" asp-action="Index">Cancel</a>
+</form>
+</div>
+

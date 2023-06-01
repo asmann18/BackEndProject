@@ -48,7 +48,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
                 Description = eventViewModel.Description,
                 Image = "eheehe-" + amount + eventViewModel.Image.FileName
             };
-            string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\speaker\\" + "eheehe-" + amount + eventViewModel.Image.FileName;
+            string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\event\\" + "eheehe-" + amount + eventViewModel.Image.FileName;
             List<EventSpeaker> eventSpeakers = new List<EventSpeaker>();
 
             foreach (int id in eventViewModel.SpeakersIds)
@@ -95,12 +95,12 @@ namespace Back_End_Project.Areas.Admin.Controllers
         {
             Event? @event = await _context.Events.FirstOrDefaultAsync(e => e.Id == id);
             ViewBag.Speakers = _context.Speakers.ToList();
-            if (!ModelState.IsValid)
-                    return View();
+            //if (!ModelState.IsValid)
+            //        return View();
 
             if (@event == null)
                 return NotFound();
-            string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\speaker\\";
+            string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\event\\";
 
 
             if (eventViewModel.Image is not null)
@@ -120,9 +120,20 @@ namespace Back_End_Project.Areas.Admin.Controllers
             @event.StartTime = eventViewModel.StartTime;
             @event.Duration = eventViewModel.Duration;
             @event.Description = eventViewModel.Description;
+
             List<EventSpeaker> eventSpeakers = new List<EventSpeaker>();
             if (eventViewModel.SpeakersIds != null)
             {
+                List<EventSpeaker> eventSpeakers2=_context.EventSpeakers.ToList();
+                foreach (EventSpeaker eventSpeaker in eventSpeakers2)
+                {
+                    if (eventSpeaker.EventId == @event.Id)
+                    {
+                    _context.EventSpeakers.Remove(eventSpeaker);
+                    _context.SaveChanges();
+
+                    }
+                }
 
                 foreach (int speakerid in eventViewModel.SpeakersIds)
                 {
@@ -152,7 +163,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [ActionName("Delete")]
         public IActionResult DeleteEvent(int id)
         {
-            string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\speaker\\";
+            string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\event\\";
 
             Event? @event = _context.Events.FirstOrDefault(e => e.Id == id);
             if (@event == null)
@@ -163,10 +174,28 @@ namespace Back_End_Project.Areas.Admin.Controllers
                 System.IO.File.Delete(path + @event.Image);
             }
 
+            List<EventSpeaker> eventSpeakers = _context.EventSpeakers.ToList();
+            foreach (EventSpeaker eventSpeaker in eventSpeakers)
+            {
+                if (eventSpeaker.EventId == @event.Id)
+                {
+                    _context.EventSpeakers.Remove(eventSpeaker);
+                    _context.SaveChanges();
+
+                }
+            }
             _context.Events.Remove(@event);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
 
+        }
+        public async Task<IActionResult> Detail(int id)
+        {
+            Event? @event = await _context.Events.FirstOrDefaultAsync(e => e.Id == id);
+            if (@event == null)
+                return NotFound();
+
+            return View(@event);
         }
     }
 }

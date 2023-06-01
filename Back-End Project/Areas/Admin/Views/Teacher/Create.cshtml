@@ -1,0 +1,88 @@
+﻿@using Back_End_Project.Areas.Admin.ViewModels
+@model TeacherViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Default form</h4>
+                    <p class="card-description">
+                        Basic form layout
+                    </p>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Image</label>
+                            <input class="form-control" asp-for="Image" placeholder="Image" accept="image/*">
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input class="form-control" asp-for="Name" placeholder="Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Profession</label>
+                            <input class="form-control" asp-for="Profession" placeholder="Profession">
+                            <span asp-validation-for="Profession" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Degree</label>
+                            <input class="form-control" asp-for="Degree" placeholder="Degree" />
+                            <span asp-validation-for="Degree" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Description</label>
+                            <input class="form-control" asp-for="About" placeholder="About" />
+                            <span asp-validation-for="About" class="text-danger"></span>
+                        </div>
+                                <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Experience</label>
+                            <input class="form-control" asp-for="Experience" placeholder="Experience" />
+                            <span asp-validation-for="Experience" class="text-danger"></span>
+                        </div>
+                                      <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Hobbies</label>
+                            <input class="form-control" asp-for="Hobbies" placeholder="Hobbies" />
+                            <span asp-validation-for="Hobbies" class="text-danger"></span>
+                        </div>
+
+             
+                                      <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Faculty</label>
+                            <input class="form-control" asp-for="Faculty" placeholder="Faculty" />
+                            <span asp-validation-for="Faculty" class="text-danger"></span>
+                        </div>
+                        
+             
+                                      <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Mail</label>
+                            <input class="form-control" asp-for="Mail" placeholder="Mail" />
+                            <span asp-validation-for="Mail" class="text-danger"></span>
+                        </div>
+                        
+                                      <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Phone</label>
+                            <input class="form-control" asp-for="Phone" placeholder="Phone" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+
+             
+
+                        <button type="submit" class="btn btn-primary mr-2">Create</button>
+                        <a class="btn btn-light" asp-action="Index">Cancel</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

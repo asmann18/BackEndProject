@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QgkdmPLG8o1wJEwuXK1aOjkvZr7hot05Xf3wcMPqN30=",
+  "Hash": "AkuHnQmrSlTGdx7IhNrYIWpbo856YhgYcTu821AxcOg=",
   "Source": "Back-End Project",
   "BasePath": "_content/Back-End Project",
   "Mode": "Default",
@@ -1292,6 +1292,40 @@
       "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-246course6.jpg"
     },
     {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\event\\eheehe-0event13.jpg",
+      "SourceId": "Back-End Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
+      "BasePath": "_content/Back-End Project",
+      "RelativePath": "img/event/eheehe-0event13.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\event\\eheehe-0event13.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\event\\eheehe-0event2.jpg",
+      "SourceId": "Back-End Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
+      "BasePath": "_content/Back-End Project",
+      "RelativePath": "img/event/eheehe-0event2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\event\\eheehe-0event2.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\event\\event1.jpg",
       "SourceId": "Back-End Project",
       "SourceType": "Discovered",
@@ -1836,12 +1870,12 @@
       "OriginalItemSpec": "wwwroot\\img\\slider\\slider3.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\speaker\\eheehe-0event8.jpg",
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\speaker\\eheehe-0speaker1.jpg",
       "SourceId": "Back-End Project",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
       "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/speaker/eheehe-0event8.jpg",
+      "RelativePath": "img/speaker/eheehe-0speaker1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1850,7 +1884,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\speaker\\eheehe-0event8.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\speaker\\eheehe-0speaker1.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\speaker\\eheehe-0teacher1.jpg",
@@ -1870,12 +1904,12 @@
       "OriginalItemSpec": "wwwroot\\img\\speaker\\eheehe-0teacher1.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\speaker\\eheehe-123event2.jpg",
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\speaker\\eheehe-123speaker1.jpg",
       "SourceId": "Back-End Project",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
       "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/speaker/eheehe-123event2.jpg",
+      "RelativePath": "img/speaker/eheehe-123speaker1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1884,7 +1918,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\speaker\\eheehe-123event2.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\speaker\\eheehe-123speaker1.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\speaker\\eheehe-123teacher2.jpg",
@@ -1919,6 +1953,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\speaker\\eheehe-246teacher3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\asiman.png",
+      "SourceId": "Back-End Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
+      "BasePath": "_content/Back-End Project",
+      "RelativePath": "img/teacher/asiman.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\teacher\\asiman.png"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\ehehehe-0teacher12.jpg",
+      "SourceId": "Back-End Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
+      "BasePath": "_content/Back-End Project",
+      "RelativePath": "img/teacher/ehehehe-0teacher12.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\teacher\\ehehehe-0teacher12.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\teacher1.jpg",

@@ -1,9 +1,10 @@
 ﻿@using Back_End_Project.Models
-@model List<Event>
+@model List<Skill>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
 }
+
 
 
 
@@ -17,33 +18,33 @@
             <thead>
                 <tr>
                     <th>Id</th>
-
-                    <th>Image</th>
                     <th>Name</th>
+                    <th>Point</th>
+                    <th>Teacher</th>
+
 
                     <th>Actions</th>
 
                 </tr>
             </thead>
             <tbody>
-                @foreach (Event eventt in Model)
+                @foreach (Skill skill in Model)
                 {
 
                     <tr>
-                        <td>@eventt.Id</td>
-                        
+                        <td>@skill.Id</td>
+
                         <td>
-                            <img src="~/img/event/@eventt.Image"
-                             alt="Inner Image" />
+                          @skill.Name
                         </td>
 
-                        <td>@eventt.Name</td>
+                        <td>@skill.Point</td>
+                        <td>@skill.Teacher.Name</td>
 
 
                         <td>
-                            <a class="btn btn-success" asp-route-id="@eventt.Id" asp-action="Detail">Detail</a>
-                            <a class="btn btn-warning" asp-route-id="@eventt.Id" asp-action="Update">Update</a>
-                            <a class="btn btn-danger" asp-route-id="@eventt.Id" asp-action="Delete">Delete</a>
+                            <a class="btn btn-warning" asp-route-id="@skill.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@skill.Id" asp-action="Delete">Delete</a>
 
                         </td>
 
