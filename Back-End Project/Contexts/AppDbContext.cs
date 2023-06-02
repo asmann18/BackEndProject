@@ -1,12 +1,15 @@
 ﻿using Back_End_Project.Models;
 using Back_End_Project.Models.ManyToMany;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 
 namespace Back_End_Project.Contexts
 {
-    public class AppDbContext : DbContext
+
+
+    public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -23,6 +26,9 @@ namespace Back_End_Project.Contexts
         public DbSet<Teacher> Teachers { get; set; } = null!;
         public DbSet<Skill> Skills { get; set; } = null!;
         public DbSet<SocialMedia> SocialMedias { get; set; } = null!;
+        public DbSet<Blog> Blogs { get; set; } = null!;
+        public DbSet<AppUser> AppUsers { get; set; } = null!;
+
 
 
 

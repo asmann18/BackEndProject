@@ -1,0 +1,27 @@
+﻿@using Back_End_Project.Models
+@model Blog
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="~/img/blog/@Model.Image" alt="inner image" style="width:150px;height:150px" />
+            <h4>Name:@Model.Name</h4>
+            <h4>Description:@Model.Description </h4>
+
+            <h4>Redactor: @Model.Redactor </h4>
+            <h4>Created Time:@Model.CreatedTime</h4>
+
+            <div style="display: flex; gap: 15px">
+                <a class="btn btn-info" asp-action="Index">Go Back</a>
+                <form method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

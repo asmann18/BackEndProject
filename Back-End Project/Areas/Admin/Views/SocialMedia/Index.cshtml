@@ -1,0 +1,68 @@
+﻿@using Back_End_Project.Models
+@model List<SocialMedia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Icon</th>
+                    <th>Path</th>
+                    <th>Teacher</th>
+
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (SocialMedia socialMedia in Model)
+                {
+
+                    <tr>
+                        <td>@socialMedia.Id</td>
+                        <td>
+                         <i class="@socialMedia.Icon">
+
+                         </i>
+                        </td>
+                        <td><a href="@socialMedia.Path">
+                                @socialMedia.Path
+                        </a> </td>
+                        <td>@socialMedia.Teacher.Name</td>
+
+
+                        <td>
+                            <a class="btn btn-warning" asp-route-id="@socialMedia.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@socialMedia.Id" asp-action="Delete">Delete</a>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a class="create_button btn btn-success" asp-action="Create">  Create </a>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+
+
+

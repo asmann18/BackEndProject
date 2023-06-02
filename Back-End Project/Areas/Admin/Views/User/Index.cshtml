@@ -1,0 +1,69 @@
+﻿@using Back_End_Project.Areas.Admin.ViewModels
+@model List<AllUserViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AllUserViewModel user in Model)
+                {
+
+                    <tr>
+                        <td>@user.Username</td>
+                  
+                        <td>@user.Email</td>
+                        <td>@user.Role</td>
+
+
+                        <td>
+                            <a class="btn btn-warning" asp-route-id="@user.Id" asp-action="Update">Change Role</a>
+                            @if(user.IsActive){
+                            <a class="btn btn-success" asp-route-id="@user.Id" asp-action="UserBlock">Active</a>
+
+                            }
+                            @if(!user.IsActive){
+
+                            <a class="btn btn-danger" asp-route-id="@user.Id" asp-action="UserUnblock">Blocked</a>
+                            }
+
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a class="create_button btn btn-success" asp-action="Create">  Create </a>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+
+
+

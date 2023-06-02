@@ -1,0 +1,49 @@
+﻿@using Back_End_Project.Areas.Admin.ViewModels
+@using Back_End_Project.Models
+@model SocialMediaViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Default form</h4>
+                    <p class="card-description">
+                        Basic form layout
+                    </p>
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Icon</label>
+                            <input class="form-control" asp-for="Icon" placeholder="Icon" >
+                            <span asp-validation-for="Icon" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Path</label>
+                            <input class="form-control" asp-for="Path" placeholder="Path">
+                            <span asp-validation-for="Path" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="CatogoryIds">Teacher</label>
+                            <select class="form-control" name="TeacherId" id="TeacherId" >
+                                @foreach (Teacher teacher in ViewBag.Teachers)
+                                {
+                                    <option value="@teacher.Id">@teacher.Name</option>
+                                }
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mr-2">Create</button>
+                        <a class="btn btn-light" asp-action="Index">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

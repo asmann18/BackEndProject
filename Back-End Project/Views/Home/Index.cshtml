@@ -127,7 +127,9 @@
                     </div>
                     <div class="course-content">
                         <h3><a href="course-details.html">@course.Name</a></h3>
-                        <p>@course.Desc.Substring(0,100) ...</p>
+                       @if(course.Desc.Length>40){
+                                <p>@course.Desc.Substring(0,40) ...</p>
+                       }
                         <a class="default-btn" href="course-details.html">read more</a>
                     </div>
                 </div>

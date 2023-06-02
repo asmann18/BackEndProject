@@ -1,12 +1,14 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoryController : Controller
     {
         private readonly AppDbContext _context;

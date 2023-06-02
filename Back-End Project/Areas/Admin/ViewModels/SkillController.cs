@@ -84,7 +84,7 @@ namespace Back_End_Project.Areas.Admin.ViewModels
             {
                 Teacher? teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.Id == skill.TeacherId);
                 teacher.Skills.Remove(skill);
-                Teacher? teacher2 = await _context.Teachers.FirstOrDefaultAsync(t => t.Id == skillViewModel.TeacherId);
+                Teacher? teacher2 = await _context.Teachers.Include(x=>x.Skills).FirstOrDefaultAsync(t => t.Id == skillViewModel.TeacherId);
                 if (teacher2 is null)
                     return View();
 
