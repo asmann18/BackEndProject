@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YccdO3nf6VZYwaf0tA4u9f+X1aLJSNrxpBYpHRtwJQo=",
+  "Hash": "6+jiElkPIy6JSpW5OvQoaL/rVBIT8FCNdnk01tHPUFw=",
   "Source": "Back-End Project",
   "BasePath": "_content/Back-End Project",
   "Mode": "Default",
@@ -2720,12 +2720,12 @@
       "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-0course1.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\course\\eheehe-0course3.jpg",
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\course\\eheehe-123course4.jpg",
       "SourceId": "Back-End Project",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
       "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/course/eheehe-0course3.jpg",
+      "RelativePath": "img/course/eheehe-123course4.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2734,75 +2734,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-0course3.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\course\\eheehe-0course4.jpg",
-      "SourceId": "Back-End Project",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
-      "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/course/eheehe-0course4.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-0course4.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\course\\eheehe-0course-bg.jpg",
-      "SourceId": "Back-End Project",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
-      "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/course/eheehe-0course-bg.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-0course-bg.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\course\\eheehe-0courses-details.jpg",
-      "SourceId": "Back-End Project",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
-      "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/course/eheehe-0courses-details.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-0courses-details.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\course\\eheehe-123courses-details.jpg",
-      "SourceId": "Back-End Project",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
-      "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/course/eheehe-123courses-details.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-123courses-details.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\course\\eheehe-123course4.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\course\\eheehe-246course6.jpg",
@@ -3502,12 +3434,12 @@
       "OriginalItemSpec": "wwwroot\\img\\teacher\\asiman.png"
     },
     {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\eheehe-0teacher5.jpg",
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\ehehehe-0teacher11.jpg",
       "SourceId": "Back-End Project",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
       "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/teacher/eheehe-0teacher5.jpg",
+      "RelativePath": "img/teacher/ehehehe-0teacher11.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3516,15 +3448,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\teacher\\eheehe-0teacher5.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\teacher\\ehehehe-0teacher11.jpg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\ehehehe-0teacher12.jpg",
+      "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\ehehehe-0teacher3.jpg",
       "SourceId": "Back-End Project",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\",
       "BasePath": "_content/Back-End Project",
-      "RelativePath": "img/teacher/ehehehe-0teacher12.jpg",
+      "RelativePath": "img/teacher/ehehehe-0teacher3.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3533,7 +3465,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\teacher\\ehehehe-0teacher12.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\teacher\\ehehehe-0teacher3.jpg"
     },
     {
       "Identity": "C:\\Users\\Admin\\source\\repos\\Back-End Project\\Back-End Project\\wwwroot\\img\\teacher\\teacher1.jpg",

@@ -44,6 +44,7 @@ namespace Back_End_Project.Controllers
                 Fullname = userViewModel.Fullname,
                 Email = userViewModel.Email
             };
+       
 
             var identity = await _userManager.CreateAsync(user, userViewModel.Password);
             if (!identity.Succeeded)
@@ -74,6 +75,11 @@ namespace Back_End_Project.Controllers
             if (user is null)
             {
                 ModelState.AddModelError("", "Username or password invalid");
+                return View();
+            }
+            if (!user.IsActive)
+            {
+                ModelState.AddModelError("", "User is blocked");
                 return View();
             }
 

@@ -1,12 +1,16 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
+
     public class TeacherController : Controller
     {
         private readonly AppDbContext _context;
@@ -63,6 +67,8 @@ namespace Back_End_Project.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             Teacher? teacher=await _context.Teachers.FirstOrDefaultAsync(t=>t.Id == id);
@@ -85,6 +91,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id,TeacherViewModel teacherViewModel)
         {
             Teacher? teacher= await _context.Teachers.FirstOrDefaultAsync(t=>t.Id == id);
@@ -120,6 +127,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             Teacher? teacher = _context.Teachers.FirstOrDefault(t => t.Id == id);
@@ -131,6 +139,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteTeacher(int id)
         {
             Teacher? teacher = _context.Teachers.FirstOrDefault(t => t.Id == id);

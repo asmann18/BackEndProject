@@ -1,13 +1,17 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
+
     public class BlogController : Controller
     {
 
@@ -58,6 +62,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             Blog? blog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
@@ -73,6 +78,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             return View(blogViewModel);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int id, BlogViewModel blogViewModel)
         {
@@ -114,6 +120,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
 
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             Blog? blog = _context.Blogs.FirstOrDefault(b => b.Id == id);
@@ -124,6 +131,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         [ActionName("Delete")]
         public IActionResult DeleteBlog(int id)
         {

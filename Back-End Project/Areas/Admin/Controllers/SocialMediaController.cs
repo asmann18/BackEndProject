@@ -1,12 +1,16 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
+
     public class SocialMediaController : Controller
     {
         private readonly AppDbContext _context;
@@ -49,7 +53,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             ViewBag.Teachers = await _context.Teachers.ToListAsync();
@@ -67,6 +71,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, SocialMediaViewModel socialMediaViewModel)
         {
             ViewBag.Teachers = await _context.Teachers.ToListAsync();
@@ -92,7 +97,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             SocialMedia? socialMedia = _context.SocialMedias.Include(x=>x.Teacher).FirstOrDefault(s => s.Id == id);
@@ -104,6 +109,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteSocialMedia(int id)
         {
             SocialMedia? socialMedia = _context.SocialMedias.Include(x => x.Teacher).FirstOrDefault(s => s.Id == id);

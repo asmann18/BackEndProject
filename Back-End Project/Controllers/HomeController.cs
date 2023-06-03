@@ -1,4 +1,5 @@
-﻿using Back_End_Project.Contexts;
+﻿using Back_End_Project.Areas.Admin.ViewModels;
+using Back_End_Project.Contexts;
 using Back_End_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,8 +15,13 @@ public HomeController(AppDbContext context)
 
         public IActionResult Index()
         {
-            List<Course> courses = _context.Courses.ToList();
-            return View(courses);
+            List<Course> Courses = _context.Courses.ToList();
+            List<Event> Events = _context.Events.ToList();
+            List<Blog> Blogs = _context.Blogs.ToList();
+
+            HomeControllerViewModel homeControllerViewModel = new HomeControllerViewModel(Courses, Events, Blogs);
+          
+            return View(homeControllerViewModel);
         }
     }
 }

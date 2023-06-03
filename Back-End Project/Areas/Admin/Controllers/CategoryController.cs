@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Back_End_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles ="Admin,Moderator")]
     public class CategoryController : Controller
     {
         private readonly AppDbContext _context;
@@ -45,6 +45,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index)) ;
                
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             Category? category =_context.Categories.FirstOrDefault(c => c.Id == id);
@@ -53,6 +54,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             return View(category);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ActionName("Delete")]
         public IActionResult DeleteCategory(int id)
@@ -65,7 +67,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Index)) ;
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
 
@@ -79,6 +81,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             };
             return View(categoryViewModel);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update (int id,CategoryViewModel categoryViewModel)
         {

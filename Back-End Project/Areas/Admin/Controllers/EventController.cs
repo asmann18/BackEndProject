@@ -3,13 +3,16 @@ using Back_End_Project.Contexts;
 using Back_End_Project.Migrations;
 using Back_End_Project.Models;
 using Back_End_Project.Models.ManyToMany;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
     public class EventController : Controller
     {
         private readonly AppDbContext _context;
@@ -71,6 +74,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             Event? @event = await _context.Events.FirstOrDefaultAsync(e => e.Id == id);
@@ -91,6 +95,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, EventViewModel eventViewModel)
         {
             Event? @event = await _context.Events.FirstOrDefaultAsync(e => e.Id == id);
@@ -150,6 +155,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             Event? @event = _context.Events.FirstOrDefault(e => e.Id == id);
@@ -161,6 +167,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteEvent(int id)
         {
             string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\event\\";

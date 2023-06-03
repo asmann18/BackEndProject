@@ -2,14 +2,18 @@
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
 using Back_End_Project.Models.ManyToMany;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Data;
 using System.IO;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Moderator")]
+
     public class CourseController : Controller
     {
         private static double amount = 0;
@@ -76,11 +80,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
                 };
                categoryCourses.Add(categoryCourse);
+                Category? category=await _context.Categories.Include(x=>x.CategoryCourses).FirstOrDefaultAsync(c=>c.Id==id);
+                if (category is null)
+                    return BadRequest();
+                category.CategoryCourses.Add(categoryCourse);
                 
             }
             course.CategoryCourses = categoryCourses;
             amount += 123;
             await _context.Courses.AddAsync(course);
+
 
             using (FileStream stream = new(path, FileMode.Create))
             {
@@ -91,7 +100,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             Course? course = await _context.Courses.FirstOrDefaultAsync(x => x.Id == id);
@@ -103,6 +112,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteCourse(int id)
         {
@@ -124,7 +134,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
         }
 
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             Course? course=await _context.Courses.FirstOrDefaultAsync(x => x.Id == id);
@@ -151,6 +161,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             return View(courseViewModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(int id,CourseViewModel courseViewModel)
         {

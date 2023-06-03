@@ -1,9 +1,11 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using System.IO;
 
 namespace Back_End_Project.Areas.Admin.Controllers
@@ -62,6 +64,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             Speaker speaker = await _context.Speakers.FirstOrDefaultAsync(s => s.Id == id);
@@ -78,6 +81,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id,SpeakerViewModel speakerViewModel)
         {
             Speaker speaker = await _context.Speakers.FirstOrDefaultAsync(s => s.Id == id);
@@ -108,7 +112,8 @@ namespace Back_End_Project.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
 
         }
-        public  IActionResult Delete(int id)
+        [Authorize(Roles = "Admin")]
+        public IActionResult Delete(int id)
         {
             Speaker? speaker= _context.Speakers.FirstOrDefault(s => s.Id == id);
             if (speaker is null)
@@ -119,6 +124,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteSpeaker(int id)
         {
             Speaker? speaker = _context.Speakers.FirstOrDefault(s => s.Id == id);
