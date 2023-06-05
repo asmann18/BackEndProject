@@ -1,5 +1,6 @@
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Back_End_Project.Utilits;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,13 +23,18 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
     options.Lockout.MaxFailedAccessAttempts = 3;
     options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
-}).AddEntityFrameworkStores<AppDbContext>();
+}).AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(30);
 });
 
+Constants.mail = builder.Configuration["MailSettings:Mail"];
+Constants.password = builder.Configuration["MailSettings:Password"];
+Constants.host = builder.Configuration["MailSettings:Host"];
+Constants.port = int.Parse(builder.Configuration["MailSettings:Port"]);
 
 var app = builder.Build();
 

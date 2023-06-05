@@ -3,6 +3,7 @@ using Back_End_Project.Contexts;
 using Back_End_Project.Migrations;
 using Back_End_Project.Models;
 using Back_End_Project.Models.ManyToMany;
+using Back_End_Project.Utilits;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,7 @@ namespace Back_End_Project.Areas.Admin.Controllers
         public IActionResult Index()
         {
             List<Event> events = _context.Events.ToList();
+
             return View(events);
         }
         public async Task<IActionResult> Create()
@@ -42,7 +44,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
             ViewBag.Speakers = _context.Speakers.ToList();
             if (!ModelState.IsValid)
                 return View();
-
+            if (!eventViewModel.Image.ContentType.Contains("image"))
+            {
+                ModelState.AddModelError("Image", "File type is not image .");
+                return View();
+            }
+            if (!eventViewModel.Image.CheckFileSize(1500))
+            {
+                ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                return View();
+            }
             Event @event = new()
             {
                 Name = eventViewModel.Name,
@@ -110,6 +121,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             if (eventViewModel.Image is not null)
             {
+                if (!eventViewModel.Image.ContentType.Contains("image"))
+                {
+                    ModelState.AddModelError("Image", "File type is not image .");
+                    return View();
+                }
+                if (!eventViewModel.Image.CheckFileSize(1500))
+                {
+                    ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                    return View();
+                }
                 if (System.IO.File.Exists(path + @event.Image))
                 {
                     System.IO.File.Delete(path + @event.Image);
@@ -158,6 +179,8 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
+            if (_context.Events.ToList().Count <= 4)
+                return BadRequest();
             Event? @event = _context.Events.FirstOrDefault(e => e.Id == id);
             if (@event == null)
                 return NotFound();
@@ -170,6 +193,8 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult DeleteEvent(int id)
         {
+            if (_context.Events.ToList().Count <= 4)
+                return BadRequest();
             string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\event\\";
 
             Event? @event = _context.Events.FirstOrDefault(e => e.Id == id);

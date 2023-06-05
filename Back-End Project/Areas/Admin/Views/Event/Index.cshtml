@@ -43,7 +43,11 @@
                         <td>
                             <a class="btn btn-success" asp-route-id="@eventt.Id" asp-action="Detail">Detail</a>
                             <a class="btn btn-warning" asp-route-id="@eventt.Id" asp-action="Update">Update</a>
-                            <a class="btn btn-danger" asp-route-id="@eventt.Id" asp-action="Delete">Delete</a>
+                            @if (Model.Count > 4)
+                            {
+                                <a class="btn btn-danger"   asp-route-id="@eventt.Id" asp-action="Delete">Delete</a>
+                            }
+
 
                         </td>
 

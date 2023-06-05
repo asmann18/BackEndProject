@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin: 100px;
+        }
+
+        ;
+        .btn{
+            border:1px solid black;
+            padding:10px 15px;
+            outline:none;
+        }
+    </style>
+</head>
+<body class="body">
+
+
+    <div class="img">
+        <img style="width: 100px; height: 100px;" src="https://m.economictimes.com/thumb/msid-63994786,width-1200,height-900,resizemode-4,imgsize-35146/gmail-gets-a-makeover-heres-how-you-can-make-the-most-of-its-features.jpg" alt="">
+
+    </div>
+
+    <h2>
+        To activate your account, enter the link sent to gmail
+
+    </h2>
+    <a asp-action="Login" class="btn">Back to Login</a>
+</body>
+</html>

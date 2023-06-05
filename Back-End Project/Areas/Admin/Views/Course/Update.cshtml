@@ -1,4 +1,5 @@
 ﻿@using Back_End_Project.Areas.Admin.ViewModels
+@using Back_End_Project.Models
 @model CourseViewModel
 @{
     ViewData["Title"] = "Update";
@@ -76,8 +77,16 @@
                             <input class="form-control" asp-for="Assesments" placeholder="Assesments">
                             <span asp-validation-for="Desc" class="text-danger"></span>
                         </div>
-
-                        <button type="submit" class="btn btn-primary mr-2">Create</button>
+                        <div class="form-group">
+                            <label for="CatogoryIds">Categories</label>
+                            <select class="form-control" name="CategoryIds" id="CategoryIds" multiple>
+                                @foreach (Category category in ViewBag.Categories)
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success mr-2">Update</button>
                         <a class="btn btn-light" asp-action="Index">Cancel</a>
                     </form>
                 </div>

@@ -6,23 +6,8 @@
 }
 
 
-<!-- Banner Area Start -->
-<div class="banner-area-wrapper">
-    <div class="banner-area text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="banner-content-wrapper">
-                        <div class="banner-content">
-                            <h2>courses details</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Banner Area End -->
+@await Component.InvokeAsync("Banner",new{name="Courses Detail"})
+
 <!-- Blog Start -->
 <div class="courses-details-area blog-area pt-150 pb-140">
     <div class="container">
@@ -107,12 +92,12 @@
                     <div class="single-blog-widget mb-50">
                         <h3>categories</h3>
                         <ul>
-                            <li><a href="#">CSS Engineering (10)</a></li>
-                            <li><a href="#">Political Science (12)</a></li>
-                            <li><a href="#">Micro Biology (08)</a></li>
-                            <li><a href="#">HTML5 &amp; CSS3 (15)</a></li>
-                            <li><a href="#">Web Design (20)</a></li>
-                            <li><a href="#">PHP (23)</a></li>
+                            @foreach (Category category in ViewBag.Categories)
+                            {
+                            <li><a asp-action="filterCourses" asp-route-id="@category.Id">@category.Name (@category.CategoryCourses.Count) </a></li>
+                                
+                            }
+                       
                         </ul>
                     </div>
                     <div class="single-blog-widget mb-50">

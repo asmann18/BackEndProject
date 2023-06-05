@@ -114,22 +114,22 @@
             </div>
         </div>
         <div class="row">
-            @foreach (Course course in Model.courses)
+            @for (int i = 0; i < 3; i++)
             {
                <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="single-course">
                     <div class="course-img">
                         <a href="course-details.html">
-                            <img src="img/course/@course.Image" alt="course">
+                                <img src="img/course/@Model.courses[i].Image" alt="course">
                             <div class="course-hover">
                                 <i class="fa fa-link"></i>
                             </div>
                         </a>
                     </div>
                     <div class="course-content">
-                        <h3><a href="course-details.html">@course.Name</a></h3>
-                       @if(course.Desc.Length>40){
-                                <p>@course.Desc.Substring(0,40) ...</p>
+                            <h3><a href="course-details.html">@Model.courses[i].Name</a></h3>
+                       @if(Model.courses[i].Desc.Length>40){
+                                <p>@Model.courses[i].Desc.Substring(0,40) ...</p>
                        }
                         <a class="default-btn" href="course-details.html">read more</a>
                     </div>
@@ -206,59 +206,50 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="single-event mb-35">
-                    <div class="event-img">
-                        <a href="event-details.html"><img src="img/event/event1.jpg" alt="event"></a>
-                    </div>
-                    <div class="event-content text-left">
-                        <h3>20 June 2017</h3>
-                        <h4><a href="event-details.html">ADVANCE PHP WORKSHOP</a></h4>
-                        <ul>
-                            <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                            <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                        </ul>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
+                @for (var i = 0; i < 2; i++)
+                {
+
+                    <div class="single-event mb-35">
+                        <div class="event-img">
+                            <a asp-controller="Event" asp-action="Detail" asp-route-id="@Model.events[i].Id"><img src="~/img/event/@Model.events[i].Image" alt="event"></a>
+                        </div>
+                        <div class="event-content text-left">
+                            <h3>@Model.events[i].StartTime</h3>
+                            <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@Model.events[i].Id">@Model.events[i].Name</a></h4>
+                            <ul>
+                                <li><i class="fa fa-clock-o"></i>@Model.events[i].Duration</li>
+                                <li><i class="fa fa-map-marker"></i>New Yourk City</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@Model.events[i].Id">join now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="single-event hidden-sm hidden-xs">
-                    <div class="event-img">
-                        <a href="event-details.html"><img src="img/event/event3.jpg" alt="event"></a>
-                    </div>
-                    <div class="event-content text-left">
-                        <h3>16 June 2017</h3>
-                        <h4><a href="event-details.html">learning english history</a></h4>
-                        <ul>
-                            <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                            <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                        </ul>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
+
+                }
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-                @foreach (Event eventt in Model.events)
+                
+                @for (var i = 2; i < 4; i++)
                 {
                     
                 <div class="single-event mb-35">
                     <div class="event-img">
-                        <a asp-controller="Event" asp-action="Detail" asp-route-id="@eventt.Id"><img src="~/img/event/@eventt.Image" alt="event"></a>
+                            <a asp-controller="Event" asp-action="Detail" asp-route-id="@Model.events[i].Id"><img src="~/img/event/@Model.events[i].Image" alt="event"></a>
                     </div>
                     <div class="event-content text-left">
-                        <h3>@eventt.StartTime</h3>
-                        <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@eventt.Id">@eventt.Name</a></h4>
+                            <h3>@Model.events[i].StartTime</h3>
+                            <h4><a asp-controller="Event" asp-action="Detail" asp-route-id="@Model.events[i].Id">@Model.events[i].Name</a></h4>
                         <ul>
-                            <li><i class="fa fa-clock-o"></i>@eventt.Duration</li>
+                                <li><i class="fa fa-clock-o"></i>@Model.events[i].Duration</li>
                             <li><i class="fa fa-map-marker"></i>New Yourk City</li>
                         </ul>
                         <div class="event-content-right">
-                                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@eventt.Id">join now</a>
+                                <a class="default-btn" asp-controller="Event" asp-action="Detail" asp-route-id="@Model.events[i].Id">join now</a>
                         </div>
                     </div>
                 </div>
+                
                 }
             </div>
         </div>
@@ -301,24 +292,24 @@
             </div>
         </div>
         <div class="row">
-            @foreach (Blog blog in Model.blogs)
+            @for (var i = 0; i < 3; i++)
             {
-                
+    
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="single-blog">
                     <div class="blog-img">
-                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"><img src="~/img/blog/@blog.Image" alt="blog"></a>
+                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.blogs[i].Id"><img src="~/img/blog/@Model.blogs[i].Image" alt="blog"></a>
                         <div class="blog-hover">
-                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"><i class="fa fa-link"></i></a>
+                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.blogs[i].Id"><i class="fa fa-link"></i></a>
                         </div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-top">
-                            <p>@blog.Redactor  /  @blog.CreatedTime  /  <i class="fa fa-comments-o"></i> 4</p>
+                                <p>@Model.blogs[i].Redactor  /  @Model.blogs[i].CreatedTime  /  <i class="fa fa-comments-o"></i> 4</p>
                         </div>
                         <div class="blog-bottom">
-                            <h2><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">@blog.Description </a></h2>
-                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">read more</a>
+                                <h2><a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.blogs[i].Id">@Model.blogs[i].Description </a></h2>
+                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.blogs[i].Id">read more</a>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,13 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Back_End_Project.Utilits;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Net.Mime;
 
 namespace Back_End_Project.Areas.Admin.Controllers
 {
@@ -44,6 +46,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
                 return View();
+            if (!blogViewModel.Image.ContentType.Contains("image"))
+            {
+                ModelState.AddModelError("Image", "File type is not image .");
+                return View();
+            }
+            if (!blogViewModel.Image.CheckFileSize(1500))
+            {
+                ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                return View();
+            }
 
             Blog blog = new()
             {
@@ -96,6 +108,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             if (blogViewModel.Image is not null)
             {
+                if (!blogViewModel.Image.ContentType.Contains("image"))
+                {
+                    ModelState.AddModelError("Image", "File type is not image .");
+                    return View();
+                }
+                if (!blogViewModel.Image.CheckFileSize(1500))
+                {
+                    ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                    return View();
+                }
                 if (System.IO.File.Exists(path + blog.Image))
                 {
                     System.IO.File.Delete(path + blog.Image);
@@ -123,6 +145,8 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
+            if (_context.Blogs.ToList().Count <= 3)
+                return BadRequest();
             Blog? blog = _context.Blogs.FirstOrDefault(b => b.Id == id);
             if (blog is null)
                 return NotFound();
@@ -135,6 +159,8 @@ namespace Back_End_Project.Areas.Admin.Controllers
         [ActionName("Delete")]
         public IActionResult DeleteBlog(int id)
         {
+            if (_context.Blogs.ToList().Count <= 3)
+                return BadRequest();
             string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\blog\\";
 
             var blog = _context.Blogs.FirstOrDefault(b => b.Id == id);

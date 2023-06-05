@@ -1,6 +1,7 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Back_End_Project.Utilits;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +41,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
+            if (!teacherViewModel.Image.ContentType.Contains("image"))
+            {
+                ModelState.AddModelError("Image", "File type is not image .");
+                return View();
+            }
+            if (!teacherViewModel.Image.CheckFileSize(1500))
+            {
+                ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                return View();
+            }
 
             string path = _webHostEnvironment.ContentRootPath + "wwwroot\\img\\teacher\\" + "eheehe-" + amount + teacherViewModel.Image.FileName;
 
@@ -101,6 +112,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             if (teacherViewModel.Image is not null)
             {
+                if (!teacherViewModel.Image.ContentType.Contains("image"))
+                {
+                    ModelState.AddModelError("Image", "File type is not image .");
+                    return View();
+                }
+                if (!teacherViewModel.Image.CheckFileSize(1500))
+                {
+                    ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                    return View();
+                }
                 if (System.IO.File.Exists(path + teacher.Image))
                 {
                     System.IO.File.Delete(path + teacher.Image);

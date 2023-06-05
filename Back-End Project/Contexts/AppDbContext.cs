@@ -28,15 +28,11 @@ namespace Back_End_Project.Contexts
         public DbSet<SocialMedia> SocialMedias { get; set; } = null!;
         public DbSet<Blog> Blogs { get; set; } = null!;
         public DbSet<AppUser> AppUsers { get; set; } = null!;
+        public DbSet<Subscribe> Subscribes { get; set; } = null!;
+        public DbSet<Setting> Settings { get; set; } = null!;
 
 
 
 
-        //Key olaraq bunlarida yazmalisan migration edende - @Huseyn
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<EventSpeaker>()
-        //        .HasKey(e => new { e.EventId, e.SpeakerId});
-        //}
     }
 }

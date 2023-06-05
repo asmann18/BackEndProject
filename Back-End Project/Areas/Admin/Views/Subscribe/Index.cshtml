@@ -1,0 +1,54 @@
+﻿@using Back_End_Project.Models
+@model List<Subscribe>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+
+                   <th>Email</th>
+                   
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Subscribe subscribe in Model)
+                {
+
+                    <tr>
+                        <td>@subscribe.Id</td>
+
+
+                        <td>@subscribe.Email</td>
+
+
+                
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+

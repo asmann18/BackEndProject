@@ -1,6 +1,7 @@
 ﻿using Back_End_Project.Areas.Admin.ViewModels;
 using Back_End_Project.Contexts;
 using Back_End_Project.Models;
+using Back_End_Project.Utilits;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -45,6 +46,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
 
             if (!ModelState.IsValid)
                 return View();
+            if (!speakerViewModel.Image.ContentType.Contains("image"))
+            {
+                ModelState.AddModelError("Image", "File type is not image .");
+                return View();
+            }
+            if (!speakerViewModel.Image.CheckFileSize(1500))
+            {
+                ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                return View();
+            }
 
             Speaker speaker = new()
             {
@@ -93,6 +104,16 @@ namespace Back_End_Project.Areas.Admin.Controllers
             {
 
                 string path = _webHostEnvironment.ContentRootPath + "\\wwwroot\\img\\speaker\\" ;
+                if (!speakerViewModel.Image.ContentType.Contains("image"))
+                {
+                    ModelState.AddModelError("Image", "File type is not image .");
+                    return View();
+                }
+                if (!speakerViewModel.Image.CheckFileSize(1500))
+                {
+                    ModelState.AddModelError("Image", "Faylin hecmi 1 mb-dan kicik olmalidir.");
+                    return View();
+                }
 
                 if (System.IO.File.Exists(path+ speaker.Image))
                 {
