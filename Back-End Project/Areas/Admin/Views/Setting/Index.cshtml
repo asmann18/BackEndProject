@@ -1,0 +1,63 @@
+﻿@using Back_End_Project.Models
+@model List<Setting>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card-body">
+
+
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+
+                    <th>Key</th>
+                    <th>Value</th>
+
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Setting setting in Model)
+                {
+
+                    <tr>
+                        <td>@setting.Id</td>
+
+                       
+
+                        <td>@setting.Key</td>
+                        <td>@setting.Value</td>
+
+
+                        <td>
+                            <a class="btn btn-warning" asp-route-id="@setting.Id" asp-action="Update">Update</a>
+                            <a class="btn btn-danger" asp-route-id="@setting.Id" asp-action="Delete">Delete</a>
+
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <a class="create_button btn btn-success" asp-action="Create">  Create </a>
+
+    </div>
+
+
+
+
+</div>
+    </div>
+    </div>
+
+

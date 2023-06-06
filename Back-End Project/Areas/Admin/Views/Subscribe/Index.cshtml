@@ -16,8 +16,9 @@
                 <tr>
                     <th>Id</th>
 
-                   <th>Email</th>
-                   
+                    <th>Email</th>
+
+                    <th>Action</th>
 
 
                 </tr>
@@ -32,8 +33,12 @@
 
                         <td>@subscribe.Email</td>
 
+                        <td>
+                            <a class="btn btn-danger" asp-route-id="@subscribe.Id" asp-action="Delete">Delete</a>
 
-                
+                        </td>
+
+
 
                     </tr>
                 }

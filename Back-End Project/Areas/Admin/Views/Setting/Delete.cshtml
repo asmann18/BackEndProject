@@ -1,0 +1,15 @@
+﻿@using Back_End_Project.Models
+@model Setting
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/shared/_AdminLayout.cshtml";
+}
+<div style="display:flex;flex-direction:column;gap:10px">
+
+    <h4>Key:@Model.Key</h4>
+    <h4>Value:@Model.Value</h4>
+    <form method="post">
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a class="btn btn-light" asp-action="Index">Cancel</a>
+    </form>
+</div>
