@@ -21,7 +21,7 @@
                         <div class="slide-content text-center">
                             <h2>EDUCATION MAKES HUMANITY </h2>
                             <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
-                            <a class="default-btn" href="about.html">Learn more</a>
+                            <a class="default-btn" asp-controller="About" asp-action="Index">Learn more</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <div class="slide-content text-center">
                             <h2>EDUCATION MAKES HUMANITY </h2>
                             <p>I must explain to you how all this mistaken idea of denouncing pleasure and prsing pain was born and I will give you a complete account of the system  </p>
-                            <a class="default-btn" href="about.html">Learn more</a>
+                            <a class="default-btn" asp-controller="About" asp-action="Index">Learn more</a>
                         </div>
                     </div>
                 </div>
@@ -61,19 +61,19 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="single-service">
-                    <h3><a href="teacher.html">PROFESSIONAL TEACHER</a></h3>
+                    <h3><a asp-controller="Teacher" asp-action="Index">PROFESSIONAL TEACHER</a></h3>
                     <p>I must explain to you how all this mistaken denouncing pleure and praising pain </p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="single-service">
-                    <h3><a href="teacher.html">PROFESSIONAL TEACHER</a></h3>
+                    <h3><a asp-controller="Teacher" asp-action="Index">PROFESSIONAL TEACHER</a></h3>
                     <p>I must explain to you how all this mistaken denouncing pleure and praising pain </p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="single-service">
-                    <h3><a href="teacher.html">PROFESSIONAL TEACHER</a></h3>
+                    <h3><a asp-controller="Teacher" asp-action="Index">PROFESSIONAL TEACHER</a></h3>
                     <p>I must explain to you how all this mistaken denouncing pleure and praising pain </p>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                     <h2>WELCOME TO <span>EDUHOME</span></h2>
                     <p>I must explain to you how all this mistaken idea of denouncing pleure and prsing pain was born and I will give you a complete account of the system, and expound the actual teachings  the master-builder of humanit happiness</p>
                     <p class="hidden-sm">I must explain to you how all this mistaken idea of denouncing pleure and prsing pain was born and I will give you a complete account of the system</p>
-                    <a class="default-btn" href="about.html">view courses</a>
+                    <a class="default-btn" asp-controller="About" asp-action="Index">view courses</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
@@ -119,7 +119,7 @@
                <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="single-course">
                     <div class="course-img">
-                        <a href="course-details.html">
+                        <a asp-controller="Courses" asp-action="Detail" asp-route-id="@Model.courses[i].Id">
                                 <img src="img/course/@Model.courses[i].Image" alt="course">
                             <div class="course-hover">
                                 <i class="fa fa-link"></i>
@@ -127,11 +127,11 @@
                         </a>
                     </div>
                     <div class="course-content">
-                            <h3><a href="course-details.html">@Model.courses[i].Name</a></h3>
+                            <h3><a asp-controller="Courses" asp-action="Detail" asp-route-id="@Model.courses[i].Id" >@Model.courses[i].Name</a></h3>
                        @if(Model.courses[i].Desc.Length>40){
-                                <p>@Model.courses[i].Desc.Substring(0,40) ...</p>
+                                <p>@Model.courses[i].Desc.Substring(0,20) ...</p>
                        }
-                        <a class="default-btn" href="course-details.html">read more</a>
+                            <a class="default-btn" asp-controller="Courses" asp-action="Detail" asp-route-id="@Model.courses[i].Id">read more</a>
                     </div>
                 </div>
             </div>
