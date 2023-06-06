@@ -45,7 +45,8 @@ namespace Back_End_Project.Controllers
             {
                 UserName = userViewModel.Username,
                 Fullname = userViewModel.Fullname,
-                Email = userViewModel.Email,
+                Email = userViewModel.Email
+                
             };
        
 
